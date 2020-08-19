@@ -1,0 +1,30 @@
+<div class="container d-flex flex-column">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card rounded-0" id="auth-card">
+                <div class="card-body text-center">
+                    <h1 class="logo-text">Instagram</h1>
+                    <p class="text-muted font-weight-bold">Sign up to see photos and videos from your friends.</p>
+                    <%= form_with(model: @user, local: true) do |f| %> 
+                        <div class="form-group">
+                            <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.text_field :name, placeholder: "Full Name", class: "form-control" %> 
+                        </div>
+                        <div class="form-group">
+                            <%= f.text_field :username, placeholder: "Username", class: "form-control" %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.password_field :password, placeholder: "Password", class: "form-control" %> 
+                        </div>
+                        <div class="form-group">
+                            <%= f.password_field :password_confirmation, placeholder: "Password", class: "form-control" %> 
+                        </div>
+                        <%= f.submit "Create my account", class: "btn bg-my btn-block font-weight-bold text-white" %> 
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

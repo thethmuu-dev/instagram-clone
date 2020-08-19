@@ -1,0 +1,24 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+:root {
+    --primaryColor: #3995F6;
+}
+
+body {
+    background-color: #FAFAFA;
+    font-size: 13px !important;
+    height: 100vh;
+}
+
+#auth-card {
+    max-width: 350px;
+}
+
+.logo-text {
+    margin: 12px auto 12px;
+}
+
+.bg-my {
+    background-color: var(--primaryColor);
+}
