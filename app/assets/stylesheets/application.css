@@ -20,6 +20,10 @@
     border-bottom: 1px solid rgba(var(--b6a,219,219,219),1);
 }
 
+.nav-link {
+    color: rgb(43, 43, 43) !important;
+}
+
 .navbar-collapse {
     flex-grow: 0;
 }
