@@ -14,3 +14,16 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-light {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(var(--b6a,219,219,219),1);
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.insta-container {
+max-width: 935px;
+}

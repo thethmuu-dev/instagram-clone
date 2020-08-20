@@ -1,10 +1,20 @@
 <div class="container d-flex flex-column">
-    <div class="row">
-        <div class="col-md-4">
+    <% if @user.errors.any? %> 
+        <div class="alert alert-warning mt-3 text-center"> 
+            <ul class="list-unstyled"> 
+            <% @user.errors.full_messages.each do |message| %> 
+            <li><%= message %></li> 
+            <% end %> 
+            </ul> 
+        </div> 
+    <% end %> 
+
+    <div class="row" id="singup_row">
+        <div class="col-md-4 p-4 mx-auto">
             <div class="card rounded-0" id="auth-card">
                 <div class="card-body text-center">
                     <h1 class="logo-text">Instagram</h1>
-                    <p class="text-muted font-weight-bold">Sign up to see photos and videos from your friends.</p>
+                    <h6 class="text-muted font-weight-bold mb-4">Sign up to see photos and videos from your friends.</h6>
                     <%= form_with(model: @user, local: true) do |f| %> 
                         <div class="form-group">
                             <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
@@ -19,12 +29,22 @@
                             <%= f.password_field :password, placeholder: "Password", class: "form-control" %> 
                         </div>
                         <div class="form-group">
-                            <%= f.password_field :password_confirmation, placeholder: "Password", class: "form-control" %> 
+                            <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-control" %> 
                         </div>
-                        <%= f.submit "Create my account", class: "btn bg-my btn-block font-weight-bold text-white" %> 
+                        <%= f.submit "Sign Up", class: "btn bg-my btn-block rounded-lg mt-2 font-weight-bold text-white" %>
+                        <div class="text-muted mt-3">
+                            By signing up, you agree to our <div class="font-weight-bold">Terms, Data Policy and Cookies Policy.</div>
+                        </div>
                     <% end %>
+                </div>
+            </div>
+            <div class="card rounded-0 mt-3">
+                <div class="card-body text-center">
+                    Have an account? <%= link_to "Log In", root_path %>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<%= render 'layouts/footer' %>

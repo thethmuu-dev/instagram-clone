@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container justify-between insta-container">
+    <a class="navbar-brand" href="/">
+      <%= image_tag("instagram.png", :size => "100x30", class: "rounded")%>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <div class="d-flex align-items-center text-secondary">
+          <% if logged_in? %>
+          <li class="nav-item d-flex align-items-center">
+              <%= image_tag("https://i.pravatar.cc/300?u=#{current_user.email}", :size => "30x30", :class => "rounded-circle") %>
+              <%= link_to current_user.name, user_path(current_user.id), class: "nav-link" %>
+          </li> |
+          <% end %>
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link" %>
+          </li> |
+          <% if logged_in? %>
+          <li class="nav-item">
+            <%= link_to "Create Post", root_path, class: "nav-link" %>
+          </li> |
+          <% end %>
+        </div>
+        <li class="nav-item">
+          <% if logged_in? %>
+            <%= link_to "Log Out", session_path(current_user.id), method: :delete, class: "nav-link" %>
+          <% else %>
+            <%= link_to "Login", root_path, class: "nav-link" %> 
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
