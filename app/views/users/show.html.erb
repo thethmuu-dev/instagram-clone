@@ -2,7 +2,11 @@
 <div class="container insta-container profile-container">
     <div class="row border-bottom pb-4">
         <div class="col-md-5 d-flex">
+            <% if @user.profile? %>
+            <%= image_tag(@user.profile.url, class: "post-img rounded-circle") %>
+            <% else %>
             <%= image_tag("https://i.pravatar.cc/300?u=#{@user.email}", :size => "150x150" , class: "rounded-circle border shadow-sm mx-auto") %>
+            <% end %>
         </div>
         <div class="col-md-7">
             <div class="row mb-2">
