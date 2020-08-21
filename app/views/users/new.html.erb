@@ -2,15 +2,7 @@
 
     <div class="row" id="singup_row">
         <div class="col-md-4 p-4 mx-auto">
-            <% if @user.errors.any? %> 
-                <div class="alert alert-warning mt-3 text-center"> 
-                    <ul class="list-unstyled mb-0"> 
-                    <% @user.errors.full_messages.each do |message| %> 
-                    <li><%= message %></li> 
-                    <% end %> 
-                    </ul> 
-                </div> 
-            <% end %> 
+            <%= render 'layouts/validation_error' %>
             <div class="card rounded-0" id="auth-card">
                 <div class="card-body text-center">
                     <h1 class="logo-text">Instagram</h1>

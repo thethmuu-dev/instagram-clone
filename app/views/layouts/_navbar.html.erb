@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container justify-between insta-container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/image_posts">
       <%= image_tag("instagram.png", :size => "100x30", class: "rounded")%>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,14 +11,14 @@
       <ul class="navbar-nav">
         <div class="d-flex align-items-center">
           <li class="nav-item">
-            <%= link_to raw('<svg width="30px" viewBox="0 0 20 20" stroke="currentColor" fill-opacity="0" stroke-opacity="0.8"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>'), root_path, class: "nav-link" %>
+            <%= link_to raw('<svg width="30px" viewBox="0 0 20 20" stroke="currentColor" fill-opacity="0" stroke-opacity="0.8"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>'), image_posts_path, class: "nav-link" %>
           </li>
           <% if logged_in? %>
             <li class="nav-item">
-              <%= link_to raw('<svg width="30px" viewBox="0 0 20 20" stroke="currentColor" fill-opacity="0" stroke-opacity="0.8"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"></path></svg>'), root_path, class: "nav-link" %>
+              <%= link_to raw('<svg width="30px" viewBox="0 0 20 20" stroke="currentColor" fill-opacity="0" stroke-opacity="0.8"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"></path></svg>'), new_image_post_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= image_tag("https://i.pravatar.cc/300?u=#{current_user.email}", :size => "35x35", :class => "mx-2  border rounded-circle img-thumbnail") %>
+                <%= link_to image_tag("https://i.pravatar.cc/300?u=#{current_user.email}", :size => "35x35", :class => "mx-2  border rounded-circle img-thumbnail"), user_path(current_user.id) %>
             </li>
           <% end %>
           <li class="nav-item">

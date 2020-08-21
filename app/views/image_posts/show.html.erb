@@ -1,0 +1,37 @@
+<%= render 'layouts/navbar' %>
+<div class="container posts-container">
+  <div class="card rounded-sm mb-3">
+    <div class="card-header post-header bg-white flex py-2">
+        <%= image_tag("https://i.pravatar.cc/300?u=#{@image_post.user.email}", :size => "35x35", :class => "rounded-circle mr-1 img-thumbnail") %>
+        <%= @image_post.user.username %>
+    </div>
+    <%= image_tag(@image_post.image.url, class: "post-img") if @image_post.image? %>
+    <div class="px-3 py-2">
+        <div class="mt-2">
+            <svg width="25px" viewBox="0 0 20 20" stroke="currentColor" fill-opacity="0" stroke-opacity="0.8"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
+        </div>
+        <% if @image_post.caption? %>
+        <p class="card-text mt-2 mb-1">
+            <b class="mr-2"><%= @image_post.user.username %></b>
+            <span><%= @image_post.caption %></span>
+        </p>
+        <% end %>
+        <div class="text-muted mb-2" id="upper">
+            <%= time_ago_in_words(@image_post.created_at) %>
+        </div>
+    </div>
+    <% if current_user.id == @image_post.user.id %>
+    <div class="card-footer my-footer bg-white">
+      <%= link_to "Edit", edit_image_post_path(@image_post), class: "px-5 py-1" %>
+      <%= link_to "Delete", image_post_path(@image_post), method: :delete, class: "px-5 py-1", data: { confirm: 'Are you sure?' } %>
+    </div>
+    <% else %>
+    <div class="card-footer my-footer bg-white">
+      <%= link_to "View", image_post_path(@image_post), class: "px-5 py-1" %>
+    </div>
+    <% end %>
+  </div>
+  <div class="text-center">
+    <%= link_to 'Back', image_posts_path %>
+  </div>
+</div>

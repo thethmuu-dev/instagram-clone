@@ -1,0 +1,56 @@
+<%= render 'layouts/navbar' %>
+<div class="container posts-container">
+    <%= render 'layouts/validation_error' %>
+    <div class="card rounded-0">
+        <div class="card-header bg-white">
+            Edit Profile
+        </div>
+        <div class="card-body w-full" id="auth-card">
+            <%= form_with(model: @user, local: true) do |f| %> 
+            <div class="form-group row mb-3">
+                <div class="col-sm-2">
+                    <%= image_tag(@user.profile.url, class: "post-img") if @user.profile? %>
+                </div>
+                <div class="col-sm-10">
+                    <h3><%= @user.username %></h3>
+                    <label for="upload-photo" class="text-primary font-weight-bold">
+                        Change Profile Photo
+                    </label>
+                    <%= f.file_field :image, id: "upload-photo" %>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 font-weight-bold col-form-label">Email</label>
+                <div class="col-sm-10">
+                <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 font-weight-bold col-form-label">Full Name</label>
+                <div class="col-sm-10">
+                <%= f.text_field :name, placeholder: "Full Name", class: "form-control" %> 
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="username" class="col-sm-2 font-weight-bold col-form-label">Username</label>
+                <div class="col-sm-10">
+                <%= f.text_field :username, placeholder: "Username", class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-sm-2 font-weight-bold col-form-label">Password</label>
+                <div class="col-sm-10">
+                <%= f.password_field :password, placeholder: "Password", class: "form-control" %> 
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 font-weight-bold col-form-label">Confirm Password</label>
+                <div class="col-sm-10">
+                <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-control" %> 
+                </div>
+            </div>
+            <%= f.submit "Submit", class: "btn bg-my btn-block rounded-lg mt-4 font-weight-bold text-white" %>
+            <% end %>
+        </div>
+    </div>
+</div>

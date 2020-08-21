@@ -1,0 +1,27 @@
+<%= render 'layouts/navbar' %>
+
+ 
+<%= render 'layouts/notice' %>
+<div class="container insta-container profile-container">
+    <%= form_with(model: @image_post, url: image_posts_path, local: true) do |f| %>
+        <div class="row">
+        <div class="col-8 mt-3 mx-auto">
+            <div class="card text-center">
+            <div class="card-header bg-white text-center font-weight-bold my-font-size">
+                Post with the following contents
+            </div>
+            <div class="card-body">
+                <%= f.hidden_field :caption %>
+                <p><%= @image_post.caption %></p>
+                <%= f.hidden_field :image_cache %>
+                <p class="card-text"><%= image_tag(@image_post.image.url, class: "post-img") if @image_post.image? %></p>
+            </div>
+            <div class="card-footer bg-white">
+                <%= f.submit "Post", class: "btn btn-my px-4" %>
+                <%= f.submit "Back", name:'back', class: "btn btn-my btn-outline-my px-4", id: "btn-outline" %>
+            </div>
+            </div>
+        </div>
+        </div>
+    <% end %>
+</div>

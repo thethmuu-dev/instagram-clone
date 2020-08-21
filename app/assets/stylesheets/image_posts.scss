@@ -1,0 +1,75 @@
+// Place all the styles related to the ImagePosts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+textarea {
+    width: 100%;
+    resize: none;
+    outline: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+.badge {
+    font-size: .7rem !important;
+}
+
+#upload-photo {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.card-header-my {
+    font-size: 0.8rem;
+    font-weight: bold;
+    background-color: rgba(0,0,0,.015);
+    color: #4a4a4a;
+    padding: 0.4rem 1rem;
+    text-align: center;
+}
+
+
+.posts-container {
+    margin-top: 30px;
+    max-width: 614px;    
+}
+
+.post-img {
+    width: 100%;
+}
+
+.post-header {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--primaryColor);
+    padding: 0.4rem 1rem;
+    text-align: left;
+    border-bottom: none;
+}
+
+.my-footer {
+    padding: 0.25rem 0 !important;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+
+    a {
+        color: #585858;
+        border-radius: 5%;
+
+        &:hover {
+            text-decoration: none;
+            background-color: rgba(0,0,0,.03);
+        }
+    }
+}
+
+#upper {
+    text-transform: uppercase;
+    font-size: .7rem;
+}
