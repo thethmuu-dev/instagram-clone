@@ -1,1 +1,34 @@
 <%= render 'layouts/navbar' %>
+<div class="container insta-container profile-container">
+    <div class="row border-bottom pb-4">
+        <div class="col-md-5 d-flex">
+            <%= image_tag("https://i.pravatar.cc/300?u=#{@user.email}", :size => "150x150" , class: "rounded-circle border shadow-sm mx-auto") %>
+        </div>
+        <div class="col-md-7">
+            <div class="row mb-2">
+                <div class="col">
+                    <h2><%= @user.username %></h2>
+                </div>
+                <div class="col d-flex align-items-center">
+                    <%= link_to "Edit Profile", root_path, class: "btn btn-my" %>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col h6">
+                    <span class="font-weight-bold">0</span> posts
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 class="font-weight-bold"><%= @user.name %></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row p-2 justify-content-center">
+        <span class="d-flex align-items-center">
+            <svg viewBox="0 0 20 20" width="20px" stroke="currentColor" fill-opacity="0" stroke-opacity="0.8"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+            <span class="ml-2">Posts</span>
+        </span>
+    </div>
+</div>
