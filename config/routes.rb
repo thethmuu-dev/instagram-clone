@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
   resources :sessions, only: [:create, :destroy]
+  mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
 end

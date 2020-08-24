@@ -13,9 +13,11 @@
                 <div class="col">
                     <h2><%= @user.username %></h2>
                 </div>
+                <% if @user.id == current_user.id %>
                 <div class="col d-flex align-items-center">
                     <%= link_to "Edit Profile", edit_user_path, class: "btn btn-my" %>
                 </div>
+                <% end %>
             </div>
             <div class="row mb-2">
                 <div class="col h6">

@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if logged_in?
+      redirect_to image_posts_path, alert: "Already Logged In!"
+    end
   end
 
   def create
@@ -15,7 +18,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    flash[:notice] = "Logged Out!"
-    redirect_to root_path
+    redirect_to root_path, notice: "Logged Out!"
   end
 end

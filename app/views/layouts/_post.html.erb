@@ -1,11 +1,11 @@
-<div class="card rounded-sm mb-3">
+<div class="card rounded-0 mb-3">
     <div class="card-header post-header bg-white flex py-2">
         <% if image_post.user.profile? %>
             <%= image_tag(image_post.user.profile.url, :size => "35x35", :class => "rounded-circle mr-1 img-thumbnail") %>
         <% else %>
             <%= image_tag("https://i.pravatar.cc/300?u=#{image_post.user.email}", :size => "35x35", :class => "rounded-circle mr-1 img-thumbnail") %>
         <% end %>
-        <%= image_post.user.username %>
+        <%= link_to image_post.user.username, user_path(image_post.user.id) %>
     </div>
     <%= image_tag(image_post.image.url, class: "post-img") if image_post.image? %>
     <div class="px-3 py-2">
@@ -14,7 +14,7 @@
         </div>
         <% if image_post.caption? %>
         <p class="card-text mt-2 mb-1">
-            <b class="mr-2"><%= image_post.user.username %></b>
+            <b class="mr-1"><%= image_post.user.username %></b>
             <span><%= image_post.caption %></span>
         </p>
         <% end %>

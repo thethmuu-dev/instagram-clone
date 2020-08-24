@@ -24,8 +24,8 @@ class ImagePostsController < ApplicationController
       render :new
     else
       if @image_post.save
-        flash[:notice] = "Post Created"
-        redirect_to @image_post
+        ImagePostMailer.image_post_mail(@image_post).deliver
+        redirect_to @image_post, notice: "Post Created"
       else
         render 'new'
       end
