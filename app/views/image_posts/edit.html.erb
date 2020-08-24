@@ -3,8 +3,9 @@
     <div class="row">
         <div class="col-md-8 mx-auto">
             <%= render 'form', image_post: @image_post %>
+            <%= image_tag(@image_post.image.url, class: "post-img shadow") if @image_post.image? %>
 
-            <div class="text-center">
+            <div class="text-center mt-3">
                 <%= link_to 'Back', image_posts_path %>
             </div>
         </div>

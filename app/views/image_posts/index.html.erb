@@ -2,6 +2,7 @@
 <div class="container posts-container">
 <%= render 'layouts/notice' %>
 
-
-<%= render 'layouts/post' %>
+<% @image_posts.each do |image_post| %>
+    <%= render 'layouts/post', :image_post => image_post %>
+<% end %>
 </div>

@@ -3,7 +3,7 @@
     <div class="row border-bottom pb-4">
         <div class="col-md-5 d-flex">
             <% if @user.profile? %>
-            <%= image_tag(@user.profile.url, class: "post-img rounded-circle") %>
+            <%= image_tag(@user.profile.url, :size => "150x150" , class: "rounded-circle border shadow-sm mx-auto") %>
             <% else %>
             <%= image_tag("https://i.pravatar.cc/300?u=#{@user.email}", :size => "150x150" , class: "rounded-circle border shadow-sm mx-auto") %>
             <% end %>
@@ -19,7 +19,7 @@
             </div>
             <div class="row mb-2">
                 <div class="col h6">
-                    <span class="font-weight-bold">0</span> posts
+                    <span class="font-weight-bold"><%= @user.image_posts.count %></span> posts
                 </div>
             </div>
             <div class="row">
@@ -34,5 +34,10 @@
             <svg viewBox="0 0 20 20" width="20px" stroke="currentColor" fill-opacity="0" stroke-opacity="0.8"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
             <span class="ml-2">Posts</span>
         </span>
+    </div>
+    <div class="container posts-container mt-1">
+    <% @user.image_posts.each do |image_post| %>
+        <%= render 'layouts/post', :image_post => image_post %>
+    <% end %>
     </div>
 </div>

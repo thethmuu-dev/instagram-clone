@@ -1,7 +1,10 @@
-<% @image_posts.each do |image_post| %>
 <div class="card rounded-sm mb-3">
     <div class="card-header post-header bg-white flex py-2">
-        <%= image_tag("https://i.pravatar.cc/300?u=#{image_post.user.email}", :size => "35x35", :class => "rounded-circle mr-1 img-thumbnail") %>
+        <% if image_post.user.profile? %>
+            <%= image_tag(image_post.user.profile.url, :size => "35x35", :class => "rounded-circle mr-1 img-thumbnail") %>
+        <% else %>
+            <%= image_tag("https://i.pravatar.cc/300?u=#{image_post.user.email}", :size => "35x35", :class => "rounded-circle mr-1 img-thumbnail") %>
+        <% end %>
         <%= image_post.user.username %>
     </div>
     <%= image_tag(image_post.image.url, class: "post-img") if image_post.image? %>
@@ -31,4 +34,3 @@
     </div>
     <% end %>
 </div>
-<% end %>
