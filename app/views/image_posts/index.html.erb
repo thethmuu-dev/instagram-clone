@@ -3,6 +3,6 @@
 <%= render 'layouts/notice' %>
 
 <% @image_posts.each do |image_post| %>
-    <%= render 'layouts/post', :image_post => image_post %>
+    <%= render 'layouts/post', image_post: image_post %>
 <% end %>
 </div>

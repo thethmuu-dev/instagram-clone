@@ -8,6 +8,7 @@ class ImagePostsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(image_post_id: @image_post.id)
   end
 
   def new
