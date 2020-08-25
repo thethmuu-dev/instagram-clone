@@ -1,7 +1,11 @@
 class FavoritesController < ApplicationController
+    def index
+        @posts = current_user.favorite_image_posts
+    end
+    
     def create
         favorite = current_user.favorites.create(image_post_id: params[:image_post_id])
-        redirect_to image_posts_path, notice: "Favorited #{ favorite.user.username }'s post"
+        redirect_to image_posts_path, notice: "Favorited post"
     end
 
     def destroy

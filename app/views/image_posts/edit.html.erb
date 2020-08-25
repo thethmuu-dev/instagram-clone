@@ -2,10 +2,10 @@
 <div class="container insta-container profile-container">
     <div class="row">
         <div class="col-md-8 mx-auto">
-            <%= render 'form', image_post: @image_post %>
+            <%= render 'form', image_post: @image_post, title: "Edit Post" %>
             <%= image_tag(@image_post.image.url, class: "post-img shadow") if @image_post.image? %>
 
-            <div class="text-center mt-3">
+            <div class="text-center mt-3 mb-4">
                 <%= link_to 'Back', image_posts_path %>
             </div>
         </div>

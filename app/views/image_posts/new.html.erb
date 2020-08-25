@@ -2,9 +2,11 @@
 <div class="container insta-container profile-container">
     <div class="row">
         <div class="col-md-8 mx-auto">
-            <%= render 'form', image_post: @image_post %>
+            <%= render 'form', image_post: @image_post, title: "New Post" %>
 
-            <%= link_to 'Back', image_posts_path %>
+            <div class="text-center mb-4">
+                <%= link_to 'Back', image_posts_path %>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,10 @@
+<%= render 'layouts/navbar' %>
+<div class="container posts-container">
+<%= render 'layouts/notice' %>
+<div class="text-center mb-3">
+    <h3>Favorite Posts</h3>
+</div>
+<% @posts.each do |image_post| %>
+    <%= render 'layouts/post', image_post: image_post %>
+<% end %>
+</div>

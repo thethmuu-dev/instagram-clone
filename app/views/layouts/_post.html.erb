@@ -9,13 +9,16 @@
     </div>
     <%= image_tag(image_post.image.url, class: "post-img") if image_post.image? %>
     <div class="px-3 py-2">
+        <% if current_page?(image_post) %>
         <div class="mt-2">
             <% if @favorite.present? %>
                 <%= link_to raw('<svg width="25px" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>'), favorite_path(id: @favorite.id), method: :delete, class: "text-dark" %>
             <% else %>
-                <%= link_to raw('<svg width="25px" viewBox="0 0 20 20" stroke="currentColor" fill-opacity="0" stroke-opacity="0.8"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>'), favorites_path, method: :post, class: "text-dark" %>
+                <%= link_to raw('<svg width="25px" viewBox="0 0 20 20" stroke="currentColor" fill-opacity="0" stroke-opacity="0.8"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>'), favorites_path(image_post_id: image_post.id), method: :post, class: "text-dark" %>
             <% end %>
         </div>
+        <% end %>
+        
         <% if image_post.caption? %>
         <p class="card-text mt-2 mb-1">
             <b class="mr-1"><%= image_post.user.username %></b>
