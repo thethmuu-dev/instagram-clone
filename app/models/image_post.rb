@@ -4,5 +4,6 @@ class ImagePost < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
 
   mount_uploader :image, ImageUploader
+  validates :caption, presence: true
   validates :image, presence: true
 end
